@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Syntax Overview - Sample Technical Documentation</title>
+  <!--<link rel="stylesheet" href="https://raw.githubusercontent.com/ArdeshirV/ardeshirv.github.io/master/css/av-darklee.css">-->
+  <link rel="stylesheet" href="./css/av-darklee.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="img/tech-supp.png">
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js">
+  </script>
+</head>
+
+<body>
+  <div class="div-main-flex" id="main-div">
+    <nav id="navbar">
+      <header>
+        <h1>JavaScript Syntax Overview</h1>
+      </header>
+      <div class="links">
+        <a class="nav-link" href="#Simple_Examples">Simple examples</a>
+        <a class="nav-link" href="#Data_Types_in_JavaScript">Data Types in JavaScript</a>
+        <a class="nav-link" href="#Console_Object">Console Object</a>
+        <a class="nav-link" href="#Recursive_Function">Recursive Function</a>
+        <a class="nav-link" href="#Anonymous_Function">Anonymous Function</a>
+        <a class="nav-link" href="#Arrow_Functions">Arrow Functions</a>
+        <a class="nav-link" href="#Objects_in_JavaScript">Objects in JavaScript</a>
+        <a class="nav-link" href="#Variadic_Function">Variadic Function</a>
+        <a class="nav-link" href="#Immediately_Invoked_Function_Expressions">Immediately Invoked Function
+          Expressions</a>
+        <a class="nav-link" href="#Exporting_and_Importing_Modules">Exporting and Importing Modules</a>
+        <a class="nav-link" href="#More_Advanced_Example">More Advanced Example</a>
+      </div>
+      <br />
+      <h5 class="h5-description">Description</h5>
+      <p class="p-description">
+        JavaScript (/ˈdʒɑːvəˌskrɪpt/), often abbreviated as JS, is a programming language that conforms to the
+        ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has
+        curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.
+      </p>
+    </nav>
+
+    <main id="main-doc">
+      <section id="Simple_Examples" class="main-section">
+        <header name="header">
+          <h2>Simple examples</h2>
+        </header>
+        <p>
+          Variables in JavaScript can be defined using either the var, let or const keywords.
+        </p>
+        <code>
+// Declares a function-scoped variable named `x`, and implicitly assigns the
+// special value `undefined` to it. Variables without value are automatically
+// set to undefined.
+var x;
+
+// Variables can be manually set to `undefined` like so
+var x2 = undefined;
+
+// Declares a block-scoped variable named `y`, and implicitly sets it to
+// `undefined`. The `let` keyword was introduced in ECMAScript 2015.
+let y;
+
+// Declares a block-scoped, un-reassign-able variable named `z`, and sets it to
+// a string literal. The `const` keyword was also introduced in ECMAScript 2015,
+// and must be explicitly assigned to.
+
+// The keyword `const` means constant, hence the variable cannot be reassigned
+// as the value is `constant`.
+const z = "this value cannot be reassigned!";
+
+// Declares a variable named `myNumber`, and assigns a number literal (the value
+// `2`) to it.
+let myNumber = 2;
+
+// Reassigns `myNumber`, setting it to a string literal (the value `"foo"`).
+// JavaScript is a dynamically-typed language, so this is legal.
+myNumber = "foo";
+        </code>
+        <p>
+          Note the comments in the example above, all of which were preceded with two forward slashes.
+          There is no built-in Input/output functionality in JavaScript; the run-time environment provides that. The
+          ECMAScript specification in edition 5.1
+          indeed, there are no provisions in this specification for input of external data or output of computed
+          results.
+        </p>
+        <hr>
+      </section>
+
+      <section id="Data_Types_in_JavaScript" class="main-section">
+        <header name="header">
+          <h2>Data Types in JavaScript</h2>
+        </header>
+        <p>
+          These are data types in JavaScript:
+        </p>
+        <ul>
+          <li>undefined</li>
+          <li>null</li>
+          <li>boolean</li>
+          <li>string</li>
+          <li>bigint</li>
+          <li>number</li>
+          <li>object</li>
+        </ul>
+        <hr>
+      </section>
+
+      <section id="Console_Object" class="main-section">
+        <header name="header">
+          <h2>Console Object</h2>
+        </header>
+        <p>
+          However, most runtime environments have a console object that can be used to print output. Here is a
+          minimalist Hello World program in JavaScript:
+        </p>
+        <code>
+console.log("Hello World!");
+        </code>
+        <hr>
+      </section>
+
+      <section id="Recursive_Function" class="main-section">
+        <header name="header">
+          <h2>Recursive Function</h2>
+        </header>
+        <p>A simple recursive function:</p>
+        <code>
+function factorial(n) {
+  if (n === 0)
+    return 1; // 0! = 1
+  return n * factorial(n - 1);
+}
+
+factorial(3); // returns 6
+        </code>
+        <hr>
+      </section>
+
+      <section id="Anonymous_Function" class="main-section">
+        <header name="header">
+          <h2>Anonymous Function</h2>
+        </header>
+        <p>
+          An <a href="https://en.wikipedia.org/wiki/Anonymous_function" target="_blank">anonymous function</a> (or
+          lambda):
+        </p>
+        <code>
+function counter() {
+  let count = 0;
+
+  return function() {
+    return ++count;
+  };
+}
+
+let closure = counter();
+closure(); // returns 1
+closure(); // returns 2
+closure(); // returns 3
+        </code>
+        <p>This example shows that, in JavaScript, <a
+            href="https://en.wikipedia.org/wiki/Closure_(computer_programming)" target="_blank">function closures</a>
+          capture their non-local variables by reference.</p>
+        <hr>
+      </section>
+
+      <section id="Arrow_Functions" class="main-section">
+        <header name="header">
+          <h2>Arrow Functions</h2>
+        </header>
+        <p>
+          Arrow functions were first introduced in 6th Edition - <a
+            href="https://en.wikipedia.org/wiki/ECMAScript#6th_Edition_-_ECMAScript_2015" target="_blank">ECMAScript
+            2015</a>. They shorten the syntax for writing functions in JavaScript. Arrow functions are anonymous in
+          nature; a variable is needed to refer to them in order to invoke them after their creation.
+        </p>
+        <p>Example of arrow function:</p>
+        <code>
+// Arrow functions let us omit the `function` keyword. Here `long_example`
+// points to an anonymous function value.
+const long_example = (input1, input2) => {
+  console.log("Hello, World!");
+  const output = input1 + input2;
+
+  return output;
+};
+
+// Arrow functions also let us automatically return the expression to the right
+// of the arrow (here `input + 5`), omitting braces and the `return` keyword.
+const short_example = (input,input2) => input + input2;
+
+long_example(2, 3); // Prints "Hello, World!" and returns 5.
+short_example(2, 5); // Returns 7.
+
+// If an arrow function only has one parameter, the parenthesis can be removed.
+const no_parenthesis = input => input + 2;
+
+no_parenthesis(3); // Returns 5.
+        </code>
+        <hr>
+      </section>
+
+      <section id="Objects_in_JavaScript" class="main-section">
+        <header name="header">
+          <h2>Objects in JavaScript</h2>
+        </header>
+        <p>
+          In JavaScript, objects are created in the same way as functions; this is known as a function object.
+        </p>
+        <p>Object example:</p>
+        <code>
+function Ball(r) {
+  this.radius = r; // the radius variable is local to the ball object
+  this.area = Math.PI * r ** 2;
+  this.show = function(){ // objects can contain functions
+    drawCircle(r); // references a circle drawing function
+  }
+}
+
+let myBall = new Ball(5); // creates a new instance of the ball object with radius 5
+myBall.radius++; // properties exposed with "this" can be modified from the outside
+myBall.show(); // this instance of the ball object has the show function performed on it
+        </code>
+        <hr>
+      </section>
+
+      <section id="Variadic_Function" class="main-section">
+        <header name="header">
+          <h2>Variadic Function</h2>
+        </header>
+        <p>
+          <a href="https://en.wikipedia.org/wiki/Variadic_function" target="_blank">Variadic function</a> demonstration
+          (arguments is a special variable):[63]
+        </p>
+        <code>
+function sum() {
+  let x = 0;
+
+  for (let i = 0; i &#60; arguments.length; ++i)
+    x += arguments[i];
+
+  return x;
+}
+
+sum(1, 2); // returns 3
+sum(1, 2, 3); // returns 6
+        </code>
+        <hr>
+      </section>
+
+      <section id="Immediately_Invoked_Function_Expressions" class="main-section">
+        <header name="header">
+          <h2>Immediately Invoked Function Expressions</h2>
+        </header>
+        <p>
+          <a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression"
+            target="_blank">Immediately-invoked function expressions</a> are often used to create modules; before
+          ECMAScript 2015 there was no built-in module construct in the language. Modules allow gathering properties and
+          methods in a namespace and making some of them private:
+        </p>
+        <code>
+let counter = (function() {
+  let i = 0; // private property
+
+  return { // public methods
+    get: function() {
+      alert(i);
+    },
+    set: function(value) {
+      i = value;
+    },
+    increment: function() {
+      alert(++i);
+    }
+  };
+})(); // module
+
+counter.get(); // shows 0
+counter.set(6);
+counter.increment(); // shows 7
+counter.increment(); // shows 8
+        </code>
+        <hr>
+      </section>
+
+      <section id="Exporting_and_Importing_Modules" class="main-section">
+        <header name="header">
+          <h2>Exporting and Importing Modules</h2>
+        </header>
+        <p>
+          Exporting and Importing modules in JavaScript.
+        </p>
+        <code>
+/* mymodule.js */
+// This function remains private, as it is not exported
+let sum = (a, b) => {
+  return a + b;
+}
+
+// Export variables
+export let name = 'Alice';
+export let age = 23;
+
+// Export named functions
+export function add(num1, num2){
+  return num1 + num2;
+}
+
+// Export class
+export class Multiplication {
+    constructor(num1, num2) {
+      this.num1 = num1;
+      this.num2 = num2;
+  }
+
+  add() {
+    return sum(this.num1, this.num2);
+  }
+}
+        </code>
+        <p>Import example:</p>
+        <code>
+// Import one property
+import { add } from './mymodule.js';
+
+console.log(add(1, 2)); // 3
+
+// Import multiple properties
+import { name, age } from './mymodule.js';
+console.log(name, age);
+//> "Alice", 23
+
+// Import all properties from a module
+import * from './module.js'
+console.log(name, age);
+//> "Alice", 23
+console.log(add(1,2));
+//> 3
+        </code>
+        <hr>
+      </section>
+
+      <section id="More_Advanced_Example" class="main-section">
+        <header name="header">
+          <h2>More Advanced Example</h2>
+        </header>
+        <p>
+          This sample code displays various JavaScript features.
+        </p>
+        <code>
+/* Finds the lowest common multiple (LCM) of two numbers */
+function LCMCalculator(x, y) { // constructor function
+  let checkInt = function(x) { // inner function
+    if (x % 1 !== 0)
+    throw new TypeError(x + "is not an integer"); // var a = mouseX
+
+    return x;
+  };
+
+  this.a = checkInt(x)
+  // semicolons ^^^^ are optional, a newline is enough
+  this.b = checkInt(y);
+}
+
+// The prototype of object instances created by a constructor is
+// that constructor's "prototype" property.
+LCMCalculator.prototype = { // object literal
+  constructor: LCMCalculator, // when reassigning a prototype, set the constructor property appropriately
+    gcd: function() { // method that calculates the greatest common divisor
+    // Euclidean algorithm:
+    let a = Math.abs(this.a), b = Math.abs(this.b), t;
+
+    if (a &#60; b) {
+      // swap variables
+      // t = b; b = a; a = t;
+      [a, b] = [b, a]; // swap using destructuring assignment (ES6)
+    }
+
+    while (b !== 0) {
+      t = b;
+      b = a % b;
+      a = t;
+    }
+
+    // Only need to calculate GCD once, so "redefine" this method.
+    // (Actually not redefinition—it's defined on the instance itself,
+    // so that this.gcd refers to this "redefinition" instead of LCMCalculator.prototype.gcd.
+    // Note that this leads to a wrong result if the LCMCalculator object members "a" and/or "b" are altered
+    afterwards.)
+    // Also, 'gcd' === "gcd", this['gcd'] === this.gcd
+    this['gcd'] = function() {
+    return a;
+    };
+
+    return a;
+  },
+
+  // Object property names can be specified by strings delimited by double (") or single (') quotes.
+  lcm: function() {
+    // Variable names do not collide with object properties, e.g., |lcm| is not |this.lcm|.
+    // not using |this.a*this.b| to avoid FP precision issues
+    let lcm = this.a / this.gcd() * this.b;
+
+    // Only need to calculate lcm once, so "redefine" this method.
+    this.lcm = function() {
+      return lcm;
+    };
+
+    return lcm;
+  },
+
+  toString: function() {
+    return "LCMCalculator: a = " + this.a + ", b = " + this.b;
+  }
+};
+
+// Define generic output function; this implementation only works for Web browsers
+function output(x) {
+  document.body.appendChild(document.createTextNode(x));
+  document.body.appendChild(document.createElement('br'));
+}
+
+// Note: Array's map() and forEach() are defined in JavaScript 1.6.
+// They are used here to demonstrate JavaScript's inherent functional nature.
+[
+  [25, 55],
+  [21, 56],
+  [22, 58],
+  [28, 56]
+].map(function(pair) { // array literal + mapping function
+  return new LCMCalculator(pair[0], pair[1]);
+}).sort((a, b) => a.lcm() - b.lcm()) // sort with this comparative function; => is a shorthand form of a
+  function, called "arrow function"
+  .forEach(printResult);
+
+function printResult(obj) {
+  output(obj + ", gcd = " + obj.gcd() + ", lcm = " + obj.lcm());
+}
+        </code>
+        <p>The following output should be displayed in the browser window.</p>
+        <code>
+LCMCalculator: a = 28, b = 56, gcd = 28, lcm = 56
+LCMCalculator: a = 21, b = 56, gcd = 7, lcm = 168
+LCMCalculator: a = 25, b = 55, gcd = 5, lcm = 275
+LCMCalculator: a = 22, b = 58, gcd = 2, lcm = 638
+        </code>
+      </section>
+
+      <footer>
+        <p class="footer-p" target="_blank">All the documentation in this page is taken from <a
+            href="https://en.wikipedia.org/wiki/JavaScript">wikipedia</a></p>
+        <p class="footer-p">
+          Copyright&copy; 2020 <a href="mailto:ArdeshirV@protonmail.com" alt="email">ArdeshirV@protonmail.com</a>,
+          Licensed under GPL<sup>v3+</sup>
+        </p>
+      </footer>
+    </main>
+  </div>
+</body>
+
+</html>
