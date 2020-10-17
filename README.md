@@ -1,6 +1,5 @@
 <html>
   <head>
-    <title>SampleQRCodeJS</title>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
       <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
     <!--<link rel="stylesheet" href="https://raw.githubusercontent.com/ArdeshirV/ardeshirv.github.io/master/css/av-darklee.css">-->
