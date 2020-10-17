@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./css/av-darklee.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" href="img/tech-supp.png">
-    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
     <script type="text/javascript" src="./js/qrcodejs/jquery.min.js"></script>
     <script type="text/javascript" src="./js/qrcodejs/qrcode.js"></script>
   </head>
