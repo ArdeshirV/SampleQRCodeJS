@@ -16,6 +16,10 @@
         <section>
           <h2></h2>
           <p></p>
+          <figure>
+            <img src="https://raw.githubusercontent.com/ArdeshirV/SampleQRCodeJS/master/img/Bitcoin%201GtjrxH6t8om8KwHAHKpcG5SAwVSsm4PEi.png" alt="1GtjrxH6t8om8KwHAHKpcG5SAwVSsm4PEi">
+            <figcaption>Donation Bitcoin:1GtjrxH6t8om8KwHAHKpcG5SAwVSsm4PEi</figcaption>
+          </figure>
         </section>
       </article>
     </main>
