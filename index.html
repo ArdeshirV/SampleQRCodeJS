@@ -13,13 +13,14 @@
   <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
   <script type="text/javascript" src="./js/qrcodejs/jquery.min.js"></script>
   <script type="text/javascript" src="./js/qrcodejs/qrcode.js"></script>
+  <script type="text/javascript" src="./js/main.js"></script>
 </head>
 
-<body>
+<body onload="pageLoad();" online="online();" offline="offline();">
   <div class="div-main-flex" id="main-div">
     <nav id="navbar">
       <header>
-        <h1>SampleQRCodeJS</h1>
+        <h1>QR Code Generator</h1>
       </header>
       <div class="links">
         <a class="nav-link" href="https://github.com/ArdeshirV/SampleQRCodeJS">Code on Github</a>
@@ -29,20 +30,23 @@
       <p class="p-description">
         Demonstrates using qrcodejs library on a dynamic web page
       </p>
+      <p style="color: magneta; " id="online_status"></p/>
     </nav>
 
     <main id="main-doc">
       <section id="Simple_Examples" class="main-section">
         <header name="header">
-          <h2>Simple examples</h2>
+          <h4>Enter text and press Enter to convert text to QR Code</h4>
         </header>
         <p>
           <input id="text_v" type="text" value="https://github.com/ArdeshirV" style="width:80%" />
           <br/><br/>
-          <svg style="border-color: white; width: 10em; height: 10em; border-style: solid; border-width: 0.5em;"
+          <svg name="qrcodex" style="border-color: white; width: 10em; height: 10em; border-style: solid; border-width: 0.5em;"
             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="qrcode"/>
           </svg>
+          <br/><br/>
+          <button id="saveAs" onclick="saveImageAs(document.qrcodex); ">Save As...</button>
         </p>
         <hr>
       </section>
@@ -57,7 +61,14 @@
       </footer>
     </main>
   </div>
-  <script type="text/javascript">
+<script>
+function saveImageAs(imgOrURL) {
+  if(typeof imgOrURL == 'object')
+    imgOrURL = imgOrURL.src;
+  window.win = open(imgOrURL);
+  setTimeout('win.document.execCommand("SaveAs")', 800);
+}
+
 var qrcode = new QRCode(document.getElementById("qrcode"), {
     width : 100,
     height : 100,
@@ -67,25 +78,39 @@ var qrcode = new QRCode(document.getElementById("qrcode"), {
 function makeCode () {
   var elText = document.getElementById("text_v");
   if (!elText.value) {
-    alert("Input a text");
+    alert("Enter text");
     elText.focus();
     return;
   }
   qrcode.makeCode(elText.value);
 }
 
-makeCode();
+function pageLoad() {
+  $("#saveAs").prop("hidden", true);
+  makeCode();
 
-$("#text_v").
-  on("blur", function () {
-      makeCode();
-  }).
-  on("keydown", function (e) {
-      if (e.keyCode == 13) {
-          makeCode();
-      }
-  });
-  </script>
+  $("#text_v").
+    on("blur", function () {
+        makeCode();
+    }).
+    on("keydown", function (e) {
+        if (e.keyCode == 13) {
+            makeCode();
+        }
+    });
+}
+
+function online() {
+  let msg = document.getElementById("online_status");
+  msg.innerHTML = "Online";
+  var elText = document.getElementById("text_v");
+  elText.focus();
+}
+
+function offline() {
+  let msg = document.getElementById("online_status");
+  msg.innerHTML = "Offline";
+}
+</script>
 </body>
-
 </html>
