@@ -16,7 +16,7 @@
   <script type="text/javascript" src="./js/main.js"></script>
 </head>
 
-<body onload="pageLoad();" online="online();" offline="offline();">
+<body onload="pageLoad();" online="onLine();" offline="offLine();">
   <div class="div-main-flex" id="main-div">
     <nav id="navbar">
       <header>
@@ -41,19 +41,17 @@
         <p>
           <input id="text_v" type="text" value="https://github.com/ArdeshirV" style="width:80%" />
           <br/><br/>
-          <svg name="qrcodex" style="border-color: white; width: 10em; height: 10em; border-style: solid; border-width: 0.5em;"
+          <svg name="qrcodex" id="qx" style="border-color: white; width: 10em; height: 10em; border-style: solid; border-width: 0.5em;"
             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="qrcode"/>
           </svg>
           <br/><br/>
-          <button id="saveAs" onclick="saveImageAs(document.qrcodex); ">Save As...</button>
+          <button id="saveAs" onclick="saveImageAs(null); ">Save As...</button>
         </p>
         <hr>
       </section>
 
       <footer>
-        <p class="footer-p" target="_blank">All the documentation in this page is taken from <a
-            href="https://github.com/davidshimjs/qrcodejs">davidshimjs</a></p>
         <p class="footer-p">
           Copyright&copy; 2020 <a href="mailto:ArdeshirV@protonmail.com" alt="email">ArdeshirV@protonmail.com</a>,
           Licensed under GPL<sup>v3+</sup>
@@ -63,10 +61,10 @@
   </div>
 <script>
 function saveImageAs(imgOrURL) {
-  if(typeof imgOrURL == 'object')
-    imgOrURL = imgOrURL.src;
-  window.win = open(imgOrURL);
-  setTimeout('win.document.execCommand("SaveAs")', 800);
+  var canvas = document.getElementById("qx");
+  canvas.toBlob(function(blob) {
+      saveAs(blob, "pretty image.png");
+  });
 }
 
 var qrcode = new QRCode(document.getElementById("qrcode"), {
@@ -86,7 +84,7 @@ function makeCode () {
 }
 
 function pageLoad() {
-  $("#saveAs").prop("hidden", true);
+  $("#saveAs").prop("hidden", true); //-------
   makeCode();
 
   $("#text_v").
@@ -100,14 +98,16 @@ function pageLoad() {
     });
 }
 
-function online() {
+function onLine() {
+  alert("online");
   let msg = document.getElementById("online_status");
   msg.innerHTML = "Online";
   var elText = document.getElementById("text_v");
   elText.focus();
 }
 
-function offline() {
+function offLine() {
+  alert("offline");
   let msg = document.getElementById("online_status");
   msg.innerHTML = "Offline";
 }
