@@ -38,7 +38,7 @@
           </figure>
           <figure>
             <figcaption>Nano:nano_3feuiaogay8zbsfye5ob1xp7obwb4syfpmc4pcb7ctckhh5z8671q4uzm9tc</figcaption>
-            <img src="https://raw.githubusercontent.com/ArdeshirV/resources/master/Wallets/Donation/QR/nano_3feuiaogay8zbsfye5ob1xp7obwb4syfpmc4pcb7ctckhh5z8671q4uzm9tc.png">
+            <img src="https://raw.githubusercontent.com/ArdeshirV/resources/master/Wallets/Donation/QR/Nano%20nano_3feuiaogay8zbsfye5ob1xp7obwb4syfpmc4pcb7ctckhh5z8671q4uzm9tc.png">
           </figure>
           <figure>
             <figcaption>Stellar:GCMALSIYBJT74K5SKJFHMLBJRWFCO6EPIKQ4DO6C7ER4QAYIMTQSOOWI</figcaption>
