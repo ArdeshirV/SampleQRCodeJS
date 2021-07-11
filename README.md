@@ -19,10 +19,10 @@
           <figure>
             <figcaption>Bitcoin:1GtjrxH6t8om8KwHAHKpcG5SAwVSsm4PEi</figcaption>
             <img src="https://raw.githubusercontent.com/ArdeshirV/resources/master/Wallets/Donation/QR/Bitcoin%201GtjrxH6t8om8KwHAHKpcG5SAwVSsm4PEi.png">
-          </figure>          
+          </figure>
           <figure>
             <figcaption>Ethereum:0x6E6465394D14975956cd1BD37ab4E35F2C60300E</figcaption>
-            <img src="https://raw.githubusercontent.com/ArdeshirV/resources/master/Wallets/Donation/QR/USDTether%200x6E6465394D14975956cd1BD37ab4E35F2C60300E.png">
+            <img src="https://raw.githubusercontent.com/ArdeshirV/resources/master/Wallets/Donation/QR/Ethereum%200x6E6465394D14975956cd1BD37ab4E35F2C60300E.png">
           </figure>
           <figure>
             <figcaption>USDT:0x6E6465394D14975956cd1BD37ab4E35F2C60300E</figcaption>
